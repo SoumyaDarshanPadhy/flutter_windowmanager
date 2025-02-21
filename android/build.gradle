@@ -4,29 +4,30 @@ version '1.0'
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()  // Changed from jcenter() as it's deprecated
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:7.0.0'  // Updated Gradle version
     }
 }
 
 rootProject.allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()  // Changed from jcenter()
     }
 }
 
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
+    namespace 'io.adaptant.labs.flutter_windowmanager'  // Added namespace
+    compileSdkVersion 31  // Updated SDK version
 
     defaultConfig {
         minSdkVersion 16
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"  // Updated to androidx
     }
     lintOptions {
         disable 'InvalidPackage'
